@@ -14,6 +14,12 @@
 				display: flex;
 				align-items: center;
 			}
+			#success-message {
+				display: none;
+				color: green;
+				margin-top: 15px;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -115,7 +121,7 @@
 					</header>
 					<div class="row">
 						<div class="col-12">
-							<form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSePE7z1IccQ0X01eTazLqaELAdhOKiIT5P03F9zfGSYb3SW7w/formResponse" target="_blank">
+							<form id="contact-form">
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="entry.123456789" id="name" placeholder="Name" required />
@@ -134,6 +140,7 @@
 									</div>
 								</div>
 							</form>
+							<div id="success-message">Your message has been sent.</div>
 						</div>
 						<div class="col-12">
 							<hr />
@@ -157,9 +164,26 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.getElementById("contact-form").addEventListener("submit", async function(event) {
+					event.preventDefault();
+					const form = event.target;
+					const formData = new FormData(form);
+					try {
+						await fetch("https://docs.google.com/forms/d/e/1FAIpQLSePE7z1IccQ0X01eTazLqaELAdhOKiIT5P03F9zfGSYb3SW7w/formResponse", {
+							method: "POST",
+							body: formData,
+						});
+						document.getElementById("success-message").style.display = "block";
+						form.reset();
+					} catch (error) {
+						console.error("Error submitting the form:", error);
+					}
+				});
+			</script>
 
 			<!-- Footer Credit -->
-			<footer style="text-align: center; font-size: 0.8em; opacity: 0.6;">
+			<footer style="text-align: center; font-size: 0.5em; opacity: 0.4;">
 				<p>Template: <a href="https://html5up.net" target="_blank" style="text-decoration: none;">Miniport by HTML5 UP</a></p>
 			</footer>
 	</body>
