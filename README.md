@@ -15,7 +15,7 @@ This is a fully responsive portfolio website built using HTML5 and CSS3. It high
 ## 💻 Tech Stack
 
 - **HTML5**, **CSS3**, **Font Awesome**
-- Responsive layout based on the [Miniport Template by HTML5 UP](https://html5up.net/miniport)
+- Responsive layout based on the HTMLUP5 - Miniport
 - Custom styling and layout enhancements tailored for academic/finance portfolios
 
 ## 🚀 Live Website
