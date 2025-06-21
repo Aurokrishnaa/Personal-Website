@@ -36,4 +36,3 @@ resume.html # Resume page
 ---
 
 > Built with care and coffee — to showcase passion for finance, strategy, and data-driven thinking.
-> Base template is HTMLUP5 
